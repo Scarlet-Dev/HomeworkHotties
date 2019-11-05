@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var engine = require('ejs-blocks');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -10,7 +11,8 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views/pages'));
+app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
